@@ -1,0 +1,29 @@
+Tried to find the latest Opencv contrib build for Android, but couldn't find any. Spent sometime figure out how to build the OpenCV 4.5.1 contib for Android. Share the information here so someone like me can save some time.
+How to build:
+1) Install MinGW
+2) Install CMake-gui
+3) Download OpenCV-4.5.1 (source code) from github
+4) Download OpenCV-contrib-4.5.1 (source code) from github
+5) Create folder D:\Android_OpenCV_Build, copy opencv-4.5.1 and opencv-contrib-4.5.1 to this folder
+6) Create folder D:\Android_OpenCV_Build\build
+7) Start CMake-gui, set "where is the source code"->D:\Android_OpenCV_Build\opencv-4.5.1; set "Where to build the binaries"->D:\Android_OpenCV_Build\build (use the browse buttons)
+8) This is important, add entry, ANDROID_ABI->arm64-v8a/x86/x86_64 (NEED TO DO THIS BFORE HITTING CONFIGURE BUTTON!!)
+9) hit configure button, choose "MinGW Makefiles" for "specify the generator for this project"; choose radio button "Specify toolchain file for cross-compiling"; click "next"
+10) Set "Android NDK location" -> "C:\Users\tchen\AppData\Local\Android\Sdk\ndk\20.1.5948944"; set toolchain file to "C:\Users\tchen\AppData\Local\Android\Sdk\ndk\20.1.5948944\build\cmake\android.toolchain.cmake" (this is important)
+11) The CMake shall start to configure the options, when it finished, 
+    - Set OPENCV_EXTRA_MODULES_PATH -> D:\Android_OpenCV_Build\opencv-contrib-4.5.1\modules (note the "modules")
+    - Uncheck BUILD_ANDROID_EXAMPLES
+    - Uncheck BUILD_ANDROID_PROJECTS
+    - Uncheck BUILD_ANDROID_PERF_TESTS
+    - Uncheck BUILD_ANDROID_TESTS
+    - Uncheck BUILD_FAT_JAVA_LIB (this is important)
+    - Check BUILD_SHARED_LIBS (this is important)
+12) Hit "configure" and "generate" buttons in sequence
+13) Start CMD console, cd to "D:\Android_OpenCV_Build\build", run "C:\MinGW\bin\mingw32-make.exe" (this is important)
+14) Wait it done, then run C:\MinGW\bin\mingw32-make.exe install", this will create shared libraries of armeabi-v7a " under "D:\Android_OpenCV_Build\build-armeabi-v7a\install\sdk".
+15) rename "D:\Android_OpenCV_Build\build" to "D:\Android_OpenCV_Build\build-armeabi-v7a", create another D:\Android_OpenCV_Build\build" folder. Remember to cd out build folder at console befor doing this.
+16) Repeat steps from 7 to 13, you will get libraris of "arm64-v8a"
+17) Repeat to get libraries for "x86" and "x86_64".
+
+Download built libraries from following link:
+https://drive.google.com/file/d/1zB3bP5xK8cjJaiwnSada2OOinILU1mcM/view?usp=sharing
