@@ -9,7 +9,7 @@ How to build:
 7) Start CMake-gui, set "where is the source code"->D:\Android_OpenCV_Build\opencv-4.5.1; set "Where to build the binaries"->D:\Android_OpenCV_Build\build (use the browse buttons)
 8) This is important, add entry, ANDROID_ABI->arm64-v8a/x86/x86_64 (NEED TO DO THIS BFORE HITTING CONFIGURE BUTTON!!)
 9) hit configure button, choose "MinGW Makefiles" for "specify the generator for this project"; choose radio button "Specify toolchain file for cross-compiling"; click "next"
-10) Set "Android NDK location" -> "C:\Users\tchen\AppData\Local\Android\Sdk\ndk\20.1.5948944"; set toolchain file to "C:\Users\tchen\AppData\Local\Android\Sdk\ndk\20.1.5948944\build\cmake\android.toolchain.cmake" (this is important)
+10) Set "Android NDK location" -> "C:\Users\tchen\AppData\Local\Android\Sdk\ndk\20.1.5948944"; set toolchain file to "C:\Users\tchen\AppData\Local\Android\Sdk\ndk\20.1.5948944\build\cmake\android.toolchain.cmake" (this is important, NDK version more than 20 won't work)
 11) The CMake shall start to configure the options, when it finished, 
     - Set OPENCV_EXTRA_MODULES_PATH -> D:\Android_OpenCV_Build\opencv-contrib-4.5.1\modules (note the "modules")
     - Uncheck BUILD_ANDROID_EXAMPLES
