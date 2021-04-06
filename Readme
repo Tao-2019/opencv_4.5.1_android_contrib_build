@@ -1,4 +1,4 @@
-I was upgrading my Android app, need to upgrade OpenCV_contrib libraries to the latest and greatest, but I couldn't find any online. Spent sometime figured out how to build the OpenCV 4.5.1 contib for Android. Share the information here so someone like me can save some time.
+I was upgrading my Android app, need to upgrade OpenCV_contrib libraries to the latest and greatest, but I couldn't find any online. Spent sometime figured out how to build OpenCV 4.5.1 contrib for Android. Share the information here so someone like me can save some time.
 How to build:
 1) Install MinGW
 2) Install CMake-gui
